@@ -1,0 +1,46 @@
+<div class="container mt-4">
+  <div class="card shadow">
+    <div class="card-header bg-primary text-white">
+      <h3 class="mb-0"><i class="bi bi-person-plus"></i> Inscription d'un Nouvel Élève</h3>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Prénom</label>
+            <input type="text" formControlName="firstname" class="form-control" placeholder="Ex: Jean">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Nom</label>
+            <input type="text" formControlName="lastname" class="form-control" placeholder="Ex: Dupont">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" formControlName="email" class="form-control">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Téléphone</label>
+            <input type="text" formControlName="phoneNumber" class="form-control">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Type de Permis</label>
+            <select formControlName="typePermit" class="form-select">
+              <option value="">Sélectionner...</option>
+              <option *ngFor="let p of permits" [value]="p">Permis {{p}}</option>
+            </select>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Prix Total (FCFA)</label>
+            <input type="number" formControlName="totalPrice" class="form-control">
+          </div>
+        </div>
+
+        <button type="submit" [disabled]="registerForm.invalid" class="btn btn-success w-100 mt-3">
+          Valider l'inscription
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

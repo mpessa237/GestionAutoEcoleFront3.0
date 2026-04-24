@@ -1,0 +1,41 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow border-0">
+        <div class="card-header bg-primary text-white py-3">
+          <h5 class="mb-0"><i class="bi bi-cash-coin me-2"></i>Enregistrer un versement</h5>
+        </div>
+        <div class="card-body p-4">
+          <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+
+            <div class="mb-3">
+              <label class="form-label fw-bold">Montant (CFA)</label>
+              <input type="number" formControlName="amount" class="form-control form-control-lg text-primary fw-bold" placeholder="Ex: 25000">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-bold">Mode de paiement</label>
+              <select formControlName="paymentMethod" class="form-select">
+                @for (method of methods; track method) {
+                  <option [value]="method">{{ method }}</option>
+                }
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-bold">Note / Commentaire</label>
+              <textarea formControlName="note" class="form-control" rows="2" placeholder="Ex: Deuxième tranche..."></textarea>
+            </div>
+
+            <div class="d-grid gap-2 mt-4">
+              <button type="submit" [disabled]="paymentForm.invalid" class="btn btn-primary btn-lg">
+                Confirmer le paiement
+              </button>
+              <button type="button" class="btn btn-light" routerLink="/admin/all-students">Annuler</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+.navbar {
+    padding: 0.8rem 0;
+    transition: all 0.3s ease;
+}
+
+.nav-link {
+    font-weight: 500;
+    font-size: 1.05rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Effet de barre sous les liens au survol */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 10px;
+    background-color: #ffc107; /* Jaune Warning pour le contraste */
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 70%;
+}
+
+.nav-link:hover {
+    color: #ffc107 !important;
+}
+
+.navbar-brand span {
+    letter-spacing: 1px;
+}
+
+/* Animation fluide lors du changement de page */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Style du bouton connexion au survol */
+.btn-outline-light:hover {
+    background-color: white;
+    color: #0d6efd; /* Bleu Primaire */
+    transform: translateY(-2px);
+}

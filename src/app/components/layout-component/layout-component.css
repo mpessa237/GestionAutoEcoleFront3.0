@@ -1,0 +1,34 @@
+#sidebar-wrapper {
+  height: 100vh;
+  transition: margin 0.25s ease-out;
+}
+
+.list-group-item {
+  padding: 0.75rem 1.25rem;
+  border: none;
+}
+
+.list-group-item:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #0d6efd !important;
+}
+
+/* Style pour l'option active */
+.active {
+  background-color: #0d6efd !important;
+  color: white !important;
+  border-radius: 5px;
+}
+
+.active-sub {
+  color: #ffc107 !important;
+  font-weight: bold;
+}
+
+.text-white-50 {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+#menu-toggle:hover {
+  color: #0d6efd;
+}

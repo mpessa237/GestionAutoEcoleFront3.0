@@ -1,0 +1,74 @@
+<div class="d-flex" id="wrapper">
+  <div class="bg-dark text-white border-end" id="sidebar-wrapper" style="min-width: 250px;">
+    <div class="sidebar-heading text-center py-4 fs-4 fw-bold text-uppercase border-bottom">
+      <i class="bi bi-shield-check me-2 text-primary"></i>SGAE 3.0
+    </div>
+
+    <div class="list-group list-group-flush my-3 px-2">
+
+      <a routerLink="/admin/dashboard" routerLinkActive="active" class="list-group-item list-group-item-action bg-transparent text-white fw-bold border-0">
+        <i class="bi bi-speedometer2 me-2"></i>Dashboard
+      </a>
+
+      @if (authService.userRole() === 'ADMIN') {
+        <div class="mb-1">
+          <button class="list-group-item list-group-item-action bg-transparent text-white fw-bold border-0 d-flex justify-content-between align-items-center w-100"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#inscriptionsCollapse">
+            <span><i class="bi bi-person-plus me-2"></i>Inscriptions</span>
+            <i class="bi bi-chevron-down small"></i>
+          </button>
+
+          <div class="collapse ms-3" id="inscriptionsCollapse">
+            <a routerLink="/admin/register-student" routerLinkActive="active-sub" class="list-group-item list-group-item-action bg-transparent text-white-50 border-0 small">
+              <i class="bi bi-plus-circle me-2"></i>Nouvelle Inscription
+            </a>
+            <a routerLink="/admin/all-students" routerLinkActive="active-sub" class="list-group-item list-group-item-action bg-transparent text-white-50 border-0 small">
+              <i class="bi bi-card-checklist me-2"></i>Liste des Étudiants
+            </a>
+          </div>
+        </div>
+
+         <div class="mb-1">
+          <button class="list-group-item list-group-item-action bg-transparent text-white fw-bold border-0 d-flex justify-content-between align-items-center w-100"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#inscriptionsCollapse">
+            <span><i class="bi bi-person-plus me-2"></i>Paiements</span>
+            <i class="bi bi-chevron-down small"></i>
+          </button>
+
+          <div class="collapse ms-3" id="inscriptionsCollapse">
+            <a routerLink="/admin/new-payment" routerLinkActive="active-sub" class="list-group-item list-group-item-action bg-transparent text-white-50 border-0 small">
+              <i class="bi bi-plus-circle me-2"></i>Effectuer un paiement
+            </a>
+            <a routerLink="/admin/payment-history" routerLinkActive="active-sub" class="list-group-item list-group-item-action bg-transparent text-white-50 border-0 small">
+              <i class="bi bi-card-checklist me-2"></i>Historique des paiements
+            </a>
+          </div>
+        </div>
+        <a routerLink="/admin/vehicles" class="list-group-item list-group-item-action bg-transparent text-white fw-bold border-0">
+          <i class="bi bi-truck me-2"></i>Véhicules
+        </a>
+      }
+
+      <button (click)="authService.logout()" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold mt-5 border-0">
+        <i class="bi bi-box-arrow-left me-2"></i>Déconnexion
+      </button>
+    </div>
+  </div>
+
+  <div id="page-content-wrapper" class="w-100 bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 px-4 shadow-sm">
+      <div class="d-flex align-items-center">
+        <i class="bi bi-list fs-4 me-3" id="menu-toggle" style="cursor: pointer;"></i>
+        <h2 class="fs-4 m-0 fw-bold text-secondary">Gestion Auto-École</h2>
+      </div>
+    </nav>
+
+    <div class="container-fluid px-4 py-4">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
