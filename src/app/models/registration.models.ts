@@ -27,7 +27,7 @@ export interface RegistrationResponse {
 }
 
 export interface StudentResponse {
-registrationId: any|string;
+  registrationId: any|string;
   userId: number;
   firstname: string;
   lastname: string;

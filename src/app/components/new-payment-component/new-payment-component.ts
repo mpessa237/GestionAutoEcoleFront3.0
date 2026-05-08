@@ -22,7 +22,6 @@ export class NewPaymentComponent implements OnInit{
   regIdFromUrl!: number;
 
   ngOnInit() {
-    // On récupère le regId depuis l'URL : /admin/new-payment/5
     this.regIdFromUrl = Number(this.route.snapshot.paramMap.get('regId'));
 
     this.paymentForm = this.fb.group({

@@ -1,1 +1,57 @@
-<p>payment-history-component works!</p>
+<div class="container py-4">
+  <!-- En-tête Dynamique -->
+  <div class="card border-0 shadow-sm mb-4 bg-primary text-white">
+    <div class="card-body d-flex justify-content-between align-items-center p-4">
+      <div>
+        <h2 class="mb-1">Historique des Paiements</h2>
+        <p class="mb-0 opacity-75">
+          Élève : <strong>{{ payments[0]?.studentFullName }}</strong> |
+          Dossier : <strong>{{ payments[0]?.fileNumber }}</strong>
+        </p>
+      </div>
+      <div class="text-end">
+        <div class="small opacity-75">Reste à payer actuel</div>
+        <h2 class="fw-bold">{{ payments[0]?.remainingBalance | number }} CFA</h2>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tableau des Transactions -->
+  <div class="card border-0 shadow-sm">
+    <div class="table-responsive">
+      <table class="table table-hover align-middle mb-0">
+        <thead class="bg-light">
+          <tr>
+            <th class="ps-4">Référence</th>
+            <th>Date</th>
+            <th>Mode</th>
+            <th>Montant</th>
+            <th>Encaissé par</th>
+            <th>Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of payments">
+            <td class="ps-4">
+              <span class="badge bg-light text-primary border">{{ p.receiptNumber }}</span>
+            </td>
+            <td>{{ p.datePayment | date:'dd/MM/yyyy HH:mm' }}</td>
+            <td>
+              <span class="badge rounded-pill bg-info text-dark">
+                {{ p.paymentMethod }}
+              </span>
+            </td>
+            <td class="fw-bold text-success">{{ p.amount | number }} CFA</td>
+            <td class="small">{{ p.adminName }}</td>
+            <td class="text-muted small"><em>{{ p.note || '-' }}</em></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div *ngIf="payments.length === 0" class="text-center p-5">
+    <i class="bi bi-wallet2 display-1 text-muted"></i>
+    <p class="mt-3">Aucun paiement trouvé pour ce dossier.</p>
+  </div>
+</div>

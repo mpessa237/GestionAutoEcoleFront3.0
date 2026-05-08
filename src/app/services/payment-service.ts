@@ -15,4 +15,8 @@ export class PaymentService {
   return this.http.post<PaymentResponseDTO>(`${this.apiUrl}/execute`, data);
 }
 
+getPaymentHistory(registrationId: number): Observable<PaymentResponseDTO[]> {
+  return this.http.get<PaymentResponseDTO[]>(`${this.apiUrl}/history/${registrationId}`);
+}
+
 }

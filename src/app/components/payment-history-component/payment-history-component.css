@@ -1,0 +1,27 @@
+.card { border-radius: 12px; }
+
+.icon-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-white-50 { background-color: rgba(255, 255, 255, 0.2); }
+
+/* Badges de couleur soft */
+.bg-info-soft { background-color: #e0f7fa; color: #00acc1; }
+.bg-success-soft { background-color: #e8f5e9; color: #2e7d32; }
+
+.table thead th {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 15px;
+}
+
+.table tbody td { padding: 15px; }
+
+.table-hover tbody tr:hover { background-color: #f8faff; }

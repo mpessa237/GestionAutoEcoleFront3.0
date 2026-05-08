@@ -25,7 +25,7 @@
             <tr>
               <td>
                 <div class="d-flex align-items-center">
-                  <div class="avatar-sm me-3 bg-primary-soft text-primary">
+                  <div class="avatar-sm me-3 bg-primary-soft text-primary d-flex align-items-center justify-content-center rounded-circle fw-bold" style="width: 40px; height: 40px; background-color: #e7f1ff;">
                     {{ s.firstname[0] }}{{ s.lastname[0] }}
                   </div>
                   <div>
@@ -38,38 +38,37 @@
                 <span class="badge bg-light text-dark border">{{ s.fileNumber }}</span>
               </td>
               <td>
-                <div><i class="bi bi-envelope-at me-1"></i>{{ s.email }}</div>
+                <div class="small"><i class="bi bi-envelope-at me-1"></i>{{ s.email }}</div>
                 <div class="small text-muted"><i class="bi bi-telephone me-1"></i>{{ s.phoneNumber }}</div>
               </td>
               <td class="text-center">
                 @if (s.enabled) {
-                  <span class="badge rounded-pill bg-success-soft text-success">Actif</span>
+                  <span class="badge rounded-pill" style="background-color: #d1e7dd; color: #0f5132; padding: 0.5em 1em;">Actif</span>
                 } @else {
-                  <span class="badge rounded-pill bg-danger-soft text-danger">Inactif</span>
+                  <span class="badge rounded-pill" style="background-color: #f8d7da; color: #842029; padding: 0.5em 1em;">Inactif</span>
                 }
               </td>
-             <td class="text-end">
-  <div class="btn-group shadow-sm">
+              <td class="text-end">
+                <div class="btn-group shadow-sm">
+                  <!-- Nouveau Paiement -->
+                  <button class="btn btn-outline-success btn-sm" [routerLink]="['/admin/new-payment', s.registrationId]" title="Nouveau paiement">
+                    <i class="bi bi-cash-coin"></i>
+                  </button>
 
-    <button class="btn btn-sm btn-outline-success"
-            [routerLink]="['/admin/new-payment', s.registrationId]"
-            title="Encaisser un versement">
-      <i class="bi bi-cash-coin"></i>
-    </button>
+                  <!-- Toggle Statut -->
+                  <button (click)="handleToggleStatus(s)"
+        [class]="s.enabled ? 'btn btn-outline-danger' : 'btn btn-outline-success'"
+        class="btn btn-sm">
+  <!-- On change l'icône dynamiquement -->
+  <i class="bi" [class.bi-person-x-fill]="s.enabled" [class.bi-person-check-fill]="!s.enabled"></i>
+</button>
 
-    <button (click)="handleToggleStatus(s)"
-            [class]="s.enabled ? 'btn btn-outline-danger' : 'btn btn-outline-success'"
-            class="btn btn-sm"
-            [title]="s.enabled ? 'Désactiver' : 'Activer'">
-      <i class="bi" [ngClass]="s.enabled ? 'bi-person-x-fill' : 'bi-person-check-fill'"></i>
-    </button>
-
-    <button class="btn btn-outline-primary btn-sm" (click)="openEditModal(s)" title="Modifier">
-      <i class="bi bi-pencil-square"></i>
-    </button>
-
-  </div>
-</td>
+                  <!-- Modifier -->
+                  <button class="btn btn-outline-primary btn-sm" (click)="openEditModal(s)" title="Modifier">
+                    <i class="bi bi-pencil-square"></i>
+                  </button>
+                </div>
+              </td>
             </tr>
             }
           </tbody>

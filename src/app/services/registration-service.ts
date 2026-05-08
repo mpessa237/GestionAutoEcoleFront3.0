@@ -21,11 +21,11 @@ getAllStudents() {
 }
 
 
-disableStudent(userId: number) {
+disableStudent(userId: number): Observable<string> {
   return this.http.patch(`${this.apiUrl}/${userId}/disable`, {}, { responseType: 'text' });
 }
 
-enableStudent(userId: number) {
+enableStudent(userId: number): Observable<string> {
   return this.http.patch(`${this.apiUrl}/${userId}/enable`, {}, { responseType: 'text' });
 }
 

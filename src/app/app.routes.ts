@@ -32,7 +32,7 @@ export const routes: Routes = [
       { path: 'register-student', component: StudentRegisterComponent },
       {path: 'all-students',component:AllStudentComponent},
       { path: 'new-payment/:regId', component: NewPaymentComponent },
-      { path: 'payment-history', component: PaymentHistoryComponent },
+      { path: 'payment-history/:regId', component: PaymentHistoryComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' } // Redirige /admin vers /admin/dashboard
     ]
   },

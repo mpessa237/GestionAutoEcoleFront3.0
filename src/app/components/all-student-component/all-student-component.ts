@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './all-student-component.css',
 })
 export class AllStudentComponent implements OnInit{
-  students: StudentResponse[] = [];
+  students: any [] = [];
   private regService = inject(RegistrationService);
 
   ngOnInit() {
@@ -20,37 +20,33 @@ export class AllStudentComponent implements OnInit{
   }
 
   loadStudents() {
-    this.regService.getAllStudents().subscribe(res => this.students = res);
-  }
-
-
-  handleToggleStatus(student: StudentResponse) {
-  if (student.enabled) {
-    this.regService.disableStudent(student.userId).subscribe({
-      next: () => {
-        student.enabled = false;
-        alert("Étudiant désactivé avec succès");
-      },
-      error: (err) => console.error(err)
-    });
-  } else {
-    this.regService.enableStudent(student.userId).subscribe({
-      next: () => {
-        student.enabled = true;
-        alert("Étudiant réactivé avec succès");
-      },
-      error: (err) => console.error(err)
-    });
-  }
+  this.regService.getAllStudents().subscribe(res => {
+    this.students = res;
+    console.log("Données reçues du backend :", res[0]); // Affiche le premier étudiant
+  });
 }
 
-// Variable pour stocker l'étudiant en cours de modification
+
+ handleToggleStatus(student: StudentResponse) {
+  const action = student.enabled ? "désactiver" : "activer";
+
+  this.regService.disableStudent(student.userId).subscribe({
+    next: () => {
+      student.enabled = !student.enabled;
+      alert("Succès !");
+    },
+    error: (err) => {
+      // Ajoute cette alerte pour confirmer le blocage
+      alert("Erreur de communication avec le serveur (CORS ou Réseau). Regarde la console.");
+      console.log("Détails de l'erreur:", err);
+    }
+  });
+}
+
 selectedStudent: any = null;
 
 openEditModal(student: StudentResponse) {
-  // On crée une copie pour ne pas modifier le tableau directement avant validation
   this.selectedStudent = { ...student };
-  // Code pour ouvrir la modale Bootstrap manuellement si nécessaire
 }
 
 confirmUpdate() {
