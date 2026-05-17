@@ -1,1 +1,242 @@
-<p>home-component works!</p>
+<div class="container-fluid p-0 bg-light min-vh-100 d-flex flex-column justify-content-between">
+
+  <div class="container py-4">
+
+    <!-- Zone 1 : Header de Bienvenue de l'Admin -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <div class="card border-0 shadow-sm text-white rounded-4" style="background: linear-gradient(135deg, #141e30 0%, #243b55 100%);">
+          <div class="card-body p-5">
+            <div class="row align-items-center">
+              <div class="col-md-9">
+                <span class="badge bg-warning text-dark mb-3 fw-bold px-3 py-2 text-uppercase tracking-wider">Espace Administrateur</span>
+                <h1 class="display-6 fw-bold mb-2">SGAE 3.0 — Console de Contrôle</h1>
+                <p class="lead opacity-75 mb-0">Ravi de vous revoir. Voici l'état global de votre auto-école pour la journée d'aujourd'hui.</p>
+              </div>
+              <div class="col-md-3 d-none d-md-block text-end">
+                <i class="bi bi-person-gear opacity-25" style="font-size: 7rem;"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Zone 2 : Indicateurs Clés de Performance (KPIs) -->
+    <h5 class="mb-3 text-uppercase text-secondary fw-bold small tracking-wide">
+      <i class="bi bi-sliders me-2"></i>Statistiques de l'Établissement
+    </h5>
+    <div class="row g-4 mb-5">
+      <!-- Carte Candidats -->
+<div class="col-12 col-sm-6 col-xl-3">
+  <div class="card border-0 shadow-sm h-100 card-admin">
+    <div class="card-body d-flex align-items-center">
+      <div class="badge p-3 bg-primary-subtle text-primary rounded-3 me-3">
+        <i class="bi bi-people-fill fs-3"></i>
+      </div>
+      <div>
+        <h6 class="card-subtitle text-muted mb-1 small fw-medium">Candidats Actifs</h6>
+        <!-- Affichage dynamique du nombre réel -->
+        <h3 class="card-title mb-0 fw-bold">{{ activeCandidatesCount }}</h3>
+        <span class="text-success small fw-semibold"><i class="bi bi-arrow-up-short"></i>Élèves inscrits</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Carte Moniteurs -->
+<div class="col-12 col-sm-6 col-xl-3">
+  <div class="card border-0 shadow-sm h-100 card-admin">
+    <div class="card-body d-flex align-items-center">
+      <div class="badge p-3 bg-success-subtle text-success rounded-3 me-3">
+        <i class="bi bi-person-badge-fill fs-3"></i>
+      </div>
+      <div>
+        <h6 class="card-subtitle text-muted mb-1 small fw-medium">Enseignants / Moniteurs</h6>
+        <!-- Affichage dynamique du nombre réel -->
+        <h3 class="card-title mb-0 fw-bold">{{ activeMonitorsCount }}</h3>
+        <span class="text-muted small">Membres du personnel</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+      <!-- Véhicules -->
+      <div class="col-12 col-sm-6 col-xl-3">
+        <div class="card border-0 shadow-sm h-100 card-admin" (click)="navigateTo(['/admin', 'dashboard'])" style="cursor: pointer;">
+          <div class="card-body d-flex align-items-center">
+            <div class="badge p-3 bg-info-subtle text-info rounded-3 me-3">
+              <i class="bi bi-car-front-fill fs-3"></i>
+            </div>
+            <div>
+              <h6 class="card-subtitle text-muted mb-1 small fw-medium">Parc Automobile</h6>
+              <h3 class="card-title mb-0 fw-bold">6 Autos</h3>
+              <span class="text-danger small fw-semibold"><i class="bi bi-exclamation-triangle-short"></i>1 en maintenance</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recettes de la caisse -->
+      <div class="col-12 col-sm-6 col-xl-3">
+        <div class="card border-0 shadow-sm h-100 card-admin" (click)="navigateTo(['/admin', 'dashboard'])" style="cursor: pointer;">
+          <div class="card-body d-flex align-items-center">
+            <div class="badge p-3 bg-warning-subtle text-warning rounded-3 me-3">
+              <i class="bi bi-wallet2 fs-3"></i>
+            </div>
+            <div>
+              <h6 class="card-subtitle text-muted mb-1 small fw-medium">Flux de Caisse (Mois)</h6>
+              <h3 class="card-title mb-0 fw-bold text-nowrap">2,450,000 CFA</h3>
+              <span class="text-muted small">80% de l'objectif</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Zone 3 : Présentation détaillée du Parc Automobile -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h5 class="text-uppercase text-secondary fw-bold small tracking-wide mb-0">
+        <i class="bi bi-car-front-fill me-2"></i>Suivi Détaillé des Véhicules
+      </h5>
+      <button class="btn btn-sm btn-outline-secondary px-3" (click)="navigateTo(['/admin', 'dashboard'])">Gérer le parc</button>
+    </div>
+
+    <div class="row g-4 mb-5">
+      <!-- Véhicule 1 -->
+      <div class="col-12 col-md-4">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <h5 class="card-title fw-bold mb-0">LT-789-CE</h5>
+              <span class="badge bg-success-subtle text-success border border-success-subtle px-2 py-1 small rounded-pill">Disponible</span>
+            </div>
+            <p class="text-muted small mb-3">Toyota Yaris — Boîte Manuelle (Cat. B)</p>
+            <div class="d-flex justify-content-between text-muted small mb-1">
+              <span>Niveau d'usure (Vidange)</span>
+              <span class="fw-bold text-dark">85%</span>
+            </div>
+            <div class="progress mb-3" style="height: 6px;">
+              <div class="progress-bar bg-success" role="progressbar" style="width: 85%"></div>
+            </div>
+            <div class="bg-light p-2 rounded text-center text-muted small">
+              <i class="bi bi-calendar-event me-2"></i>Prochaine révision : 15 Juin 2026
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Véhicule 2 -->
+      <div class="col-12 col-md-4">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <h5 class="card-title fw-bold mb-0">LT-452-AG</h5>
+              <span class="badge bg-success-subtle text-success border border-success-subtle px-2 py-1 small rounded-pill">Disponible</span>
+            </div>
+            <p class="text-muted small mb-3">Hyundai i10 — Boîte Manuelle (Cat. B)</p>
+            <div class="d-flex justify-content-between text-muted small mb-1">
+              <span>Niveau d'usure (Vidange)</span>
+              <span class="fw-bold text-dark">92%</span>
+            </div>
+            <div class="progress mb-3" style="height: 6px;">
+              <div class="progress-bar bg-success" role="progressbar" style="width: 92%"></div>
+            </div>
+            <div class="bg-light p-2 rounded text-center text-muted small">
+              <i class="bi bi-calendar-event me-2"></i>Prochaine révision : 28 Juin 2026
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Véhicule 3 -->
+      <div class="col-12 col-md-4">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <h5 class="card-title fw-bold mb-0">LT-112-BA</h5>
+              <span class="badge bg-danger-subtle text-danger border border-danger-subtle px-2 py-1 small rounded-pill">Au Garage</span>
+            </div>
+            <p class="text-muted small mb-3">Suzuki Swift — Boîte Manuelle (Cat. B)</p>
+            <div class="d-flex justify-content-between text-muted small mb-1">
+              <span>Réparation en cours</span>
+              <span class="fw-bold text-danger">30%</span>
+            </div>
+            <div class="progress mb-3" style="height: 6px;">
+              <div class="progress-bar bg-danger" role="progressbar" style="width: 30%"></div>
+            </div>
+            <div class="bg-danger-subtle text-danger p-2 rounded text-center small fw-medium">
+              <i class="bi bi-wrench me-2"></i>Panne : Remplacement Kit d'embrayage
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Zone 4 : Raccourcis d'actions rapides pour l'admin -->
+<!-- Zone 4 : Raccourcis d'actions rapides pour l'admin -->
+<h5 class="mb-3 text-uppercase text-secondary fw-bold small tracking-wide">
+  <i class="bi bi-lightning-charge me-2"></i>Actions Administratives Rapides
+</h5>
+<div class="row g-3">
+
+  <!-- Action 1 : Inscrire un élève (Redirige vers /admin/register-student) -->
+  <div class="col-6 col-md-3">
+    <button class="btn btn-white border w-100 py-3 shadow-sm btn-quick-action text-dark fw-medium"
+            (click)="navigateTo(['/admin', 'register-student'])">
+      <i class="bi bi-person-plus-fill text-primary d-block fs-3 mb-2"></i>Inscrire un élève
+    </button>
+  </div>
+
+  <!-- Action 2 : Encaisser un versement -->
+  <!-- Option A : Rediriger vers un reçu spécifique (ex: ID 1 pour le test) -->
+  <div class="col-6 col-md-3">
+    <button class="btn btn-white border w-100 py-3 shadow-sm btn-quick-action text-dark fw-medium"
+            (click)="navigateTo(['/admin', 'new-payment', 1])">
+      <i class="bi bi-cash-coin text-success d-block fs-3 mb-2"></i>Encaisser un versement
+    </button>
+  </div>
+
+  <!-- Action 3 : Voir tous les étudiants (Redirige vers /admin/all-students) -->
+  <div class="col-6 col-md-3">
+    <button class="btn btn-white border w-100 py-3 shadow-sm btn-quick-action text-dark fw-medium"
+            (click)="navigateTo(['/admin', 'all-students'])">
+      <i class="bi bi-person-lines-fill text-info d-block fs-3 mb-2"></i>Liste des Éleves
+    </button>
+  </div>
+
+  <!-- Action 4 : Rapports financiers / Historique global (Ajustable selon tes futurs composants) -->
+  <div class="col-6 col-md-3">
+    <button class="btn btn-white border w-100 py-3 shadow-sm btn-quick-action text-dark fw-medium"
+            (click)="navigateTo(['/admin', 'dashboard'])">
+      <i class="bi bi-file-earmark-bar-graph text-warning d-block fs-3 mb-2"></i>Rapports financiers
+    </button>
+  </div>
+
+</div>
+
+  </div>
+
+  <!-- Le Footer Technique d'Administration -->
+  <footer class="bg-dark text-light pt-4 mt-auto border-top border-secondary">
+    <div class="container">
+      <div class="row py-2 g-4 align-items-center">
+        <div class="col-12 col-md-6 text-center text-md-start">
+          <span class="fw-bold text-warning fs-5">SGAE 3.0</span>
+          <span class="text-muted small ms-2">| Console d'administration sécurisée</span>
+        </div>
+        <div class="col-12 col-md-6 text-center text-md-end text-muted small">
+          <span class="me-3"><i class="bi bi-cpu me-1 text-success"></i> Serveur: En ligne</span>
+          <span><i class="bi bi-shield-lock me-1 text-warning"></i> Chiffrement: JWT Actif</span>
+        </div>
+      </div>
+      <hr class="border-secondary my-2">
+      <div class="row py-2">
+        <div class="col-12 text-center text-muted x-small">
+          <p class="mb-0">&copy; 2026 SGAE Auto-School Management. Tous droits réservés à l'administrateur.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>

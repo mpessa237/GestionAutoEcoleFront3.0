@@ -16,8 +16,12 @@ export class RegistrationService {
   }
 
   // registration.service.ts
-getAllStudents() {
+getAllStudents():Observable<StudentResponse[]> {
   return this.http.get<StudentResponse[]>(`${this.apiUrl}/all`);
+}
+
+getAllActiveStudents():Observable<StudentResponse[]>{
+  return this.http.get<StudentResponse[]>(`${this.apiUrl}/active`)
 }
 
 
