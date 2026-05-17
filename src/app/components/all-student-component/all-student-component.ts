@@ -28,17 +28,20 @@ export class AllStudentComponent implements OnInit{
 
 
  handleToggleStatus(student: StudentResponse) {
-  const action = student.enabled ? "désactiver" : "activer";
+  const statusObservable = student.enabled
+    ? this.regService.disableStudent(student.userId)  
+    : this.regService.enableStudent(student.userId);
 
-  this.regService.disableStudent(student.userId).subscribe({
-    next: () => {
+  statusObservable.subscribe({
+    next: (response) => {
       student.enabled = !student.enabled;
-      alert("Succès !");
+
+      const message = student.enabled ? "Étudiant activé avec succès !" : "Étudiant désactivé avec succès !";
+      alert(message);
     },
     error: (err) => {
-      // Ajoute cette alerte pour confirmer le blocage
-      alert("Erreur de communication avec le serveur (CORS ou Réseau). Regarde la console.");
-      console.log("Détails de l'erreur:", err);
+      alert("Erreur lors du changement de statut.");
+      console.error("Détails de l'erreur:", err);
     }
   });
 }
