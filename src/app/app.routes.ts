@@ -10,6 +10,7 @@ import { ContactComponent } from './components/contact-component/contact-compone
 import { AllStudentComponent } from './components/all-student-component/all-student-component';
 import { NewPaymentComponent } from './components/new-payment-component/new-payment-component';
 import { PaymentHistoryComponent } from './components/payment-history-component/payment-history-component';
+import { StudentDetails } from './components/student-details/student-details';
 
 export const routes: Routes = [
   {
@@ -32,6 +33,7 @@ export const routes: Routes = [
       { path: 'register-student', component: StudentRegisterComponent },
       {path: 'all-students',component:AllStudentComponent},
       { path: 'new-payment/:regId', component: NewPaymentComponent },
+      { path: 'student-details/:userId', component: StudentDetails },
       { path: 'payment-history/:regId', component: PaymentHistoryComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' } // Redirige /admin vers /admin/dashboard
     ]

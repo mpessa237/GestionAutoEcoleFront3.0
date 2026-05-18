@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { StudentResponse } from '../../models/registration.models';
 import { RegistrationService } from '../../services/registration-service';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -12,8 +12,12 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './all-student-component.css',
 })
 export class AllStudentComponent implements OnInit{
+alert(arg0: string) {
+throw new Error('Method not implemented.');
+}
   students: any [] = [];
   private regService = inject(RegistrationService);
+  private router = inject(Router)
 
   ngOnInit() {
     this.loadStudents();
@@ -29,7 +33,7 @@ export class AllStudentComponent implements OnInit{
 
  handleToggleStatus(student: StudentResponse) {
   const statusObservable = student.enabled
-    ? this.regService.disableStudent(student.userId)  
+    ? this.regService.disableStudent(student.userId)
     : this.regService.enableStudent(student.userId);
 
   statusObservable.subscribe({
@@ -70,6 +74,10 @@ confirmUpdate() {
     },
     error: (err) => alert("Erreur lors de la modification")
   });
+}
+
+goToDetails(userId: number) {
+  this.router.navigate(['/admin', 'student-details', userId]);
 }
 
 }

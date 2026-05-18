@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { RegistrationRequest, RegistrationResponse, StudentResponse } from '../models/registration.models';
+import { RegistrationRequest, RegistrationResponse, StudentDetailsResponseDTO, StudentResponse } from '../models/registration.models';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -10,6 +10,11 @@ export class RegistrationService {
   private apiUrl = 'http://localhost:8089/api/admin/registrations';
 
   constructor(private http: HttpClient) { }
+
+
+  getStudentCompleteDetails(userId: number): Observable<StudentDetailsResponseDTO> {
+    return this.http.get<StudentDetailsResponseDTO>(`${this.apiUrl}/students/${userId}/details`);
+  }
 
   registerStudent(data: RegistrationRequest): Observable<RegistrationResponse> {
     return this.http.post<RegistrationResponse>(`${this.apiUrl}/create`, data);

@@ -73,5 +73,15 @@ export interface PaymentResponseDTO{
   fileNumber: string;
   adminName: string;
   remainingBalance: number;
+}
 
+export interface StudentDetailsResponseDTO {
+  userId: number;
+  firstname: string;
+  lastname: string;
+  phoneNumber: string;
+  email: string;
+  fileNumber: string;
+  registrationId: number | null;
+  payments: PaymentResponseDTO[]; 
 }
