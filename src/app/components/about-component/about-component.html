@@ -1,1 +1,77 @@
-<p>about-component works!</p>
+<div class="container py-5">
+  <!-- Section En-tête (Hero) -->
+  <div class="text-center mb-5 p-5 rounded-4 text-white position-relative overflow-hidden shadow"
+       style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);">
+    <div class="position-absolute top-0 start-0 w-100 h-100 opacity-10 bg-grid"></div>
+    <span class="badge bg-light text-primary px-3 py-2 rounded-pill fw-bold text-uppercase tracking-wider mb-3">Version 3.0</span>
+    <h1 class="display-4 fw-bold mb-2">SGAE System</h1>
+    <p class="lead fs-5 opacity-75 mx-auto" style="max-width: 600px;">
+      La plateforme de référence pour la digitalisation, le suivi des candidats et la gestion financière transparente des auto-écoles au Cameroun.
+    </p>
+  </div>
+
+  <!-- Section Chiffres Clés / Points Forts -->
+  <div class="row g-4 mb-5">
+    <div class="col-md-4">
+      <div class="card h-100 border-0 shadow-sm rounded-4 p-4 text-center hover-up">
+        <div class="icon-shape bg-primary-subtle text-primary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+          <i class="bi bi-shield-check fs-3"></i>
+        </div>
+        <h5 class="fw-bold text-dark">Sécurité & Audit</h5>
+        <p class="text-muted small mb-0">Contrôle strict des accès via JWT, gestion des rôles et traçabilité complète des actions système.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100 border-0 shadow-sm rounded-4 p-4 text-center hover-up">
+        <div class="icon-shape bg-success-subtle text-success rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+          <i class="bi bi-cash-stack fs-3"></i>
+        </div>
+        <h5 class="fw-bold text-dark">Suivi Financier</h5>
+        <p class="text-muted small mb-0">Gestion en temps réel des acomptes, calcul automatisé des restes à payer en CFA et édition de reçus.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100 border-0 shadow-sm rounded-4 p-4 text-center hover-up">
+        <div class="icon-shape bg-info-subtle text-info rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+          <i class="bi bi-person-lines-fill fs-3"></i>
+        </div>
+        <h5 class="fw-bold text-dark">Dossier Unique</h5>
+        <p class="text-muted small mb-0">Centralisation des données de l'élève, de son état d'activation, de son contrat et de son évolution.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section Stack Technique & Équipe -->
+  <div class="row g-4">
+    <!-- Technologies Utilisées -->
+    <div class="col-lg-6">
+      <div class="card border-0 shadow-sm rounded-4 p-4 h-100 bg-white">
+        <h4 class="fw-bold text-dark mb-4"><i class="bi bi-cpu text-primary me-2"></i>Architecture & Technologies</h4>
+        <div class="d-flex flex-wrap gap-2 mb-3">
+          <span class="badge bg-dark p-2 px-3 rounded-pill"><i class="bi bi-code-slash me-1"></i> Angular Standalone</span>
+          <span class="badge bg-dark p-2 px-3 rounded-pill"><i class="bi bi-box-seam me-1"></i> Spring Boot 3</span>
+          <span class="badge bg-dark p-2 px-3 rounded-pill"><i class="bi bi-database me-1"></i> Spring Data JPA</span>
+          <span class="badge bg-dark p-2 px-3 rounded-pill"><i class="bi bi-lock me-1"></i> Spring Security & JWT</span>
+          <span class="badge bg-dark p-2 px-3 rounded-pill"><i class="bi bi-bootstrap me-1"></i> Bootstrap 5</span>
+        </div>
+        <p class="text-muted small text-justify">
+          SGAE est conçu selon une architecture découplée assurant haute disponibilité, performance et robustesse. L'intégration continue garantit la qualité du code à chaque déploiement.
+        </p>
+      </div>
+    </div>
+
+    <!-- Mentions / Équipe / Supervision (Optionnel, idéal pour un rapport) -->
+    <div class="col-lg-6">
+      <div class="card border-0 shadow-sm rounded-4 p-4 h-100 bg-light">
+        <h4 class="fw-bold text-dark mb-3"><i class="bi bi-mortarboard text-secondary me-2"></i>Conception & Supervision</h4>
+        <p class="text-muted small mb-3">
+          Cette application s'inscrit dans le cadre de la modernisation des systèmes d'information dédiés à la formation professionnelle routière.
+        </p>
+        <div class="border-start border-primary border-3 ps-3 py-1">
+          <span class="text-muted d-block small text-uppercase fw-bold text-xs">Développeur Principal</span>
+          <span class="fw-bold text-dark">Hervé — Full-Stack Developer</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

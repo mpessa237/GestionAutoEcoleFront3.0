@@ -1,1 +1,94 @@
-<p>contact-component works!</p>
+<div class="container py-5">
+  <!-- En-tête -->
+  <div class="text-center mb-5">
+    <h1 class="fw-bold text-dark mb-2">Contactez le Support Technique</h1>
+    <p class="text-muted mx-auto" style="max-width: 550px;">
+      Un problème avec l'application ou une suggestion ? Remplissez le formulaire ci-dessous, notre équipe technique vous répondra dans les plus brefs délais.
+    </p>
+  </div>
+
+  <div class="row g-4 justify-content-center">
+    <div class="col-lg-7">
+      <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
+        <h4 class="fw-bold text-primary mb-4">
+          <i class="bi bi-envelope-paper me-2"></i>Envoyer un message
+        </h4>
+
+        <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label small fw-bold text-secondary">Votre Nom</label>
+              <input type="text" class="form-control bg-light border-0 py-2.5 rounded-3"
+                    placeholder="Ex: Hervé" required name="name" [(ngModel)]="contactData.name">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label small fw-bold text-secondary">Adresse Email</label>
+              <input type="email" class="form-control bg-light border-0 py-2.5 rounded-3"
+                    placeholder="Ex: name@example.com" required name="email" [(ngModel)]="contactData.email">
+            </div>
+            <div class="col-12">
+              <label class="form-label small fw-bold text-secondary">Sujet</label>
+              <input type="text" class="form-control bg-light border-0 py-2.5 rounded-3"
+                    placeholder="Ex: Problème d'impression d'un reçu de versement" required name="subject" [(ngModel)]="contactData.subject">
+            </div>
+            <div class="col-12">
+              <label class="form-label small fw-bold text-secondary">Votre Message</label>
+              <textarea class="form-control bg-light border-0 rounded-3" rows="5"
+                        placeholder="Décrivez votre problème en détail ici..." required name="message" [(ngModel)]="contactData.message"></textarea>
+            </div>
+            <div class="col-12 mt-4">
+              <button type="submit" class="btn btn-primary w-100 py-2.5 rounded-3 fw-bold shadow-sm" [disabled]="!contactForm.form.valid">
+                <i class="bi bi-send-fill me-2"></i> Envoyer le ticket de support
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="card border-0 shadow-sm rounded-4 p-4 text-white h-100"
+          style="background: linear-gradient(135deg, #141e30 0%, #243b55 100%);">
+        <h4 class="fw-bold mb-4">Informations Utiles</h4>
+
+        <div class="d-flex mb-4">
+          <div class="icon-box bg-white bg-opacity-10 rounded-3 p-3 me-3 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+            <i class="bi bi-geo-alt-fill fs-4 text-info"></i>
+          </div>
+          <div>
+            <span class="d-block small text-white-50 text-uppercase fw-bold">Localisation</span>
+            <span class="fw-medium">Yaoundé,Cameroun</span>
+          </div>
+        </div>
+
+        <div class="d-flex mb-4">
+          <div class="icon-box bg-white bg-opacity-10 rounded-3 p-3 me-3 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+            <i class="bi bi-telephone-inbound-fill fs-4 text-success"></i>
+          </div>
+          <div>
+            <span class="d-block small text-white-50 text-uppercase fw-bold">Assistance Téléphonique</span>
+            <span class="fw-medium">+237 657 93 80 10</span>
+          </div>
+        </div>
+
+        <div class="d-flex mb-4">
+          <div class="icon-box bg-white bg-opacity-10 rounded-3 p-3 me-3 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+            <i class="bi bi-envelope-fill fs-4 text-warning"></i>
+          </div>
+          <div>
+            <span class="d-block small text-white-50 text-uppercase fw-bold">E-mail Support</span>
+            <span class="fw-medium text-break">herve&#64;mpessa7@gmail.com</span>
+          </div>
+        </div>
+
+        <hr class="bg-white opacity-20 my-4">
+
+        <div class="bg-white bg-opacity-10 p-3 rounded-3 mt-auto">
+          <h6 class="fw-bold mb-1"><i class="bi bi-clock me-2"></i>Heures de disponibilité</h6>
+          <p class="small text-white-50 mb-0">Lundi - Vendredi : 08h00 - 17h00</p>
+          <p class="small text-white-50 mb-0">Samedi : 08h00 - 13h00</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

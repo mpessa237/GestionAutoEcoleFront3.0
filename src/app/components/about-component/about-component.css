@@ -1,0 +1,25 @@
+/* Effet de survol sur les cartes pour les rendre vivantes */
+.hover-up {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-up:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Style de fond discret en grille pour le Hero */
+.bg-grid {
+  background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Espacement et typographie fine */
+.tracking-wide {
+  letter-spacing: 0.1em;
+}
+
+.text-justify {
+  text-align: justify;
+}
