@@ -11,6 +11,7 @@ import { AllStudentComponent } from './components/all-student-component/all-stud
 import { NewPaymentComponent } from './components/new-payment-component/new-payment-component';
 import { PaymentHistoryComponent } from './components/payment-history-component/payment-history-component';
 import { StudentDetails } from './components/student-details/student-details';
+import { AddVehiculeComponent } from './components/add-vehicule-component/add-vehicule-component';
 
 export const routes: Routes = [
   {
@@ -35,6 +36,7 @@ export const routes: Routes = [
       { path: 'new-payment/:regId', component: NewPaymentComponent },
       { path: 'student-details/:userId', component: StudentDetails },
       { path: 'payment-history/:regId', component: PaymentHistoryComponent },
+      { path: 'vehicles/new',component:AddVehiculeComponent},
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' } // Redirige /admin vers /admin/dashboard
     ]
   },

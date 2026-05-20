@@ -83,5 +83,21 @@ export interface StudentDetailsResponseDTO {
   email: string;
   fileNumber: string;
   registrationId: number | null;
-  payments: PaymentResponseDTO[]; 
+  payments: PaymentResponseDTO[];
+}
+
+export interface VehicleRequestDTO {
+  registration: string;
+  model: string;
+  mark: string;
+  typePermit: string;
+}
+
+export interface VehicleResponseDTO {
+  vehicleId: number;
+  registration: string;
+  model: string;
+  mark: string;
+  typePermit: string;
+  statusVehicle: 'AVAILABLE' | 'UNAVAILABLE';
 }

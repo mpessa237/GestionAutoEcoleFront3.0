@@ -11,6 +11,7 @@
       </a>
 
       @if (authService.userRole() === 'ADMIN') {
+        <!-- BLOC 1 : INSCRIPTIONS -->
         <div class="mb-1">
           <button class="list-group-item list-group-item-action bg-transparent text-white fw-bold border-0 d-flex justify-content-between align-items-center w-100"
                   type="button"
@@ -30,16 +31,17 @@
           </div>
         </div>
 
-         <div class="mb-1">
+        <!-- BLOC 2 : PAIEMENTS (ID corrigé) -->
+        <div class="mb-1">
           <button class="list-group-item list-group-item-action bg-transparent text-white fw-bold border-0 d-flex justify-content-between align-items-center w-100"
                   type="button"
                   data-bs-toggle="collapse"
-                  data-bs-target="#inscriptionsCollapse">
-            <span><i class="bi bi-person-plus me-2"></i>Paiements</span>
+                  data-bs-target="#paymentsCollapse">
+            <span><i class="bi bi-credit-card me-2"></i>Paiements</span>
             <i class="bi bi-chevron-down small"></i>
           </button>
 
-          <div class="collapse ms-3" id="inscriptionsCollapse">
+          <div class="collapse ms-3" id="paymentsCollapse">
             <a routerLink="/admin/new-payment" routerLinkActive="active-sub" class="list-group-item list-group-item-action bg-transparent text-white-50 border-0 small">
               <i class="bi bi-plus-circle me-2"></i>Effectuer un paiement
             </a>
@@ -48,9 +50,26 @@
             </a>
           </div>
         </div>
-        <a routerLink="/admin/vehicles" class="list-group-item list-group-item-action bg-transparent text-white fw-bold border-0">
-          <i class="bi bi-truck me-2"></i>Véhicules
-        </a>
+
+        <!-- BLOC 3 : VÉHICULES (ID corrigé, icônes et routes ajustées) -->
+        <div class="mb-1">
+          <button class="list-group-item list-group-item-action bg-transparent text-white fw-bold border-0 d-flex justify-content-between align-items-center w-100"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#vehiclesCollapse">
+            <span><i class="bi bi-car-front me-2"></i>Véhicules</span>
+            <i class="bi bi-chevron-down small"></i>
+          </button>
+
+          <div class="collapse ms-3" id="vehiclesCollapse">
+            <a routerLink="/admin/vehicles/new" routerLinkActive="active-sub" class="list-group-item list-group-item-action bg-transparent text-white-50 border-0 small">
+              <i class="bi bi-plus-circle me-2"></i>Création d'un Véhicule
+            </a>
+            <a routerLink="/admin/vehicles/list" routerLinkActive="active-sub" class="list-group-item list-group-item-action bg-transparent text-white-50 border-0 small">
+              <i class="bi bi-card-checklist me-2"></i>Liste des Véhicules
+            </a>
+          </div>
+        </div>
       }
 
       <button (click)="authService.logout()" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold mt-5 border-0">

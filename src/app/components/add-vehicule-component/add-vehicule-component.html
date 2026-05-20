@@ -1,0 +1,123 @@
+<div class="container py-2" style="max-width: 800px;">
+
+  <div class="mb-3">
+    <span class="text-muted small">Flotte Automobile > Création</span>
+  </div>
+
+  <div class="card border-0 shadow-sm rounded-4 p-4">
+    <div class="d-flex align-items-center mb-4">
+      <div class="bg-primary-subtle text-primary rounded-3 d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+        <i class="bi bi-car-front-fill fs-3"></i>
+      </div>
+      <div>
+        <h4 class="fw-bold text-dark mb-1">Enregistrer un nouveau véhicule</h4>
+        <p class="text-muted small mb-0">Renseignez les caractéristiques techniques du véhicule pour l'ajouter à la flotte active.</p>
+      </div>
+    </div>
+
+    <hr class="text-muted opacity-25 mb-4">
+
+    <form (ngSubmit)="onSubmit()" #vehicleForm="ngForm">
+      <div class="row g-4">
+
+        <!-- Marque -->
+        <div class="col-md-6">
+          <label class="form-label small fw-bold text-secondary">Marque du véhicule</label>
+          <div class="input-group">
+            <span class="input-group-text bg-light border-0"><i class="bi bi-tag text-muted"></i></span>
+            <input type="text"
+                   class="form-control bg-light border-0 py-2.5 rounded-end-3"
+                   placeholder="Ex: Toyota"
+                   required
+                   name="mark"
+                   [(ngModel)]="newVehicle.mark"
+                   #markInput="ngModel"
+                   [class.is-invalid]="markInput.invalid && markInput.touched">
+          </div>
+          @if (markInput.invalid && markInput.touched) {
+            <div class="text-danger small mt-1">La marque est obligatoire.</div>
+          }
+        </div>
+
+        <!-- Modèle -->
+        <div class="col-md-6">
+          <label class="form-label small fw-bold text-secondary">Modèle ou Série</label>
+          <div class="input-group">
+            <span class="input-group-text bg-light border-0"><i class="bi bi-info-circle text-muted"></i></span>
+            <input type="text"
+                   class="form-control bg-light border-0 py-2.5 rounded-end-3"
+                   placeholder="Ex: Yaris"
+                   required
+                   name="model"
+                   [(ngModel)]="newVehicle.model"
+                   #modelInput="ngModel"
+                   [class.is-invalid]="modelInput.invalid && modelInput.touched">
+          </div>
+          @if (modelInput.invalid && modelInput.touched) {
+            <div class="text-danger small mt-1">Le modèle est obligatoire.</div>
+          }
+        </div>
+
+        <!-- Immatriculation / Plaque -->
+        <div class="col-md-6">
+          <label class="form-label small fw-bold text-secondary">Numéro d'immatriculation</label>
+          <div class="input-group">
+            <span class="input-group-text bg-light border-0 font-monospace">N°</span>
+            <input type="text"
+                   class="form-control bg-light border-0 py-2.5 rounded-end-3 font-monospace text-uppercase fw-bold"
+                   placeholder="Ex: LT-123-AA"
+                   required
+                   name="registration"
+                   [(ngModel)]="newVehicle.registration"
+                   #regInput="ngModel"
+                   [class.is-invalid]="regInput.invalid && regInput.touched">
+          </div>
+          <div class="form-text text-muted x-small">Ce numéro doit être unique sous peine de rejet par le système.</div>
+          @if (regInput.invalid && regInput.touched) {
+            <div class="text-danger small mt-1">La plaque d'immatriculation est obligatoire.</div>
+          }
+        </div>
+
+        <!-- Catégorie de Permis -->
+        <div class="col-md-6">
+          <label class="form-label small fw-bold text-secondary">Catégorie d'apprentissage (Permis)</label>
+          <div class="input-group">
+            <span class="input-group-text bg-light border-0"><i class="bi bi-card-id text-muted"></i></span>
+            <select class="form-select bg-light border-0 py-2.5 rounded-end-3"
+                    required
+                    name="typePermit"
+                    [(ngModel)]="newVehicle.typePermit">
+              <option value="A">Permis A (Motocyclettes)</option>
+              <option value="B">Permis B (Véhicules Légers / Boîte Manuelle)</option>
+              <option value="B_AUTO">Permis B (Boîte Automatique)</option>
+              <option value="C">Permis C (Poids Lourds / Camions)</option>
+              <option value="D">Permis D (Transports en Commun)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Boutons de validation -->
+        <div class="col-12 mt-5 d-flex gap-3 justify-content-end">
+          <button type="button"
+                  class="btn btn-light py-2.5 px-4 rounded-3 text-secondary fw-semibold"
+                  [disabled]="isSubmitting"
+                  (click)="newVehicle = { registration: '', model: '', mark: '', typePermit: 'B' }">
+            Effacer
+          </button>
+
+          <button type="submit"
+                  class="btn btn-primary py-2.5 px-5 rounded-3 fw-bold shadow-sm"
+                  [disabled]="!vehicleForm.form.valid || isSubmitting">
+            @if (isSubmitting) {
+              <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+              Enregistrement...
+            } @else {
+              <i class="bi bi-check-circle-fill me-2"></i>Valider l'enregistrement
+            }
+          </button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>
